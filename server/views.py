@@ -18,8 +18,6 @@ def login(request):
     token, created = Token.objects.get_or_create(user=user)
     serializer = UserSerializer(user)
     return Response ({"token": token.key, "user": serializer.data})
-    return Response("Not found {}".format(request.data['username']), status=status.HTTP_400_BAD_REQUEST)
-
 
 
 @api_view(['POST'])
